@@ -437,8 +437,14 @@ if (!function_exists('getimagesizefromstring'))
   {
     function getimagesizefromstring($string_data)
       {
-        $uri = 'data://application/octet-stream;base64,'  . base64_encode($string_data);
-        return getimagesize($uri);
+//        $uri = 'data://application/octet-stream;base64,'  . base64_encode($string_data);
+        $uri = tempnam("{TMP}","imge");
+        $file = fopen($uri,"w");
+        fwrite($file, $string_data);
+        fclose($file);
+        $ret = getimagesize($uri);
+        unlink($uri);
+        return($ret);
       }
   }
 
