@@ -131,7 +131,7 @@ label#non_basket_payment_label {
   right:0px;
   top:-5px;
   border:0;
-  background-image:url("/food/grfx/close_button.png");
+  background-image:url("/shop/grfx/close_button.png");
   opacity:0.5;
   }
 .close_button:hover {

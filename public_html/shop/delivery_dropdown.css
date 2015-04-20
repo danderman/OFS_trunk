@@ -88,20 +88,20 @@ ul.delivery_select li.select {
   color:#530;
   }
 li.delivery_type-dag {
-  background:url(/food/grfx/deltype-dag.png) no-repeat 7px 7px;
+  background:url(/shop/grfx/deltype-dag.png) no-repeat 7px 7px;
   }
 li.delivery_type-dac {
-  background:url(/food/grfx/deltype-dac.png) no-repeat 7px 7px;
+  background:url(/shop/grfx/deltype-dac.png) no-repeat 7px 7px;
   }
 li.delivery_type-dig {
-  background:url(/food/grfx/deltype-dig.png) no-repeat 7px 7px;
+  background:url(/shop/grfx/deltype-dig.png) no-repeat 7px 7px;
   }
 li.delivery_type-pag {
-  background:url(/food/grfx/deltype-pag.png) no-repeat 7px 7px;
+  background:url(/shop/grfx/deltype-pag.png) no-repeat 7px 7px;
   }
 li.delivery_type-pac {
-  background:url(/food/grfx/deltype-pac.png) no-repeat 7px 7px;
+  background:url(/shop/grfx/deltype-pac.png) no-repeat 7px 7px;
   }
 li.delivery_type-pig {
-  background:url(/food/grfx/deltype-pig.png) no-repeat 7px 7px;
+  background:url(/shop/grfx/deltype-pig.png) no-repeat 7px 7px;
   }

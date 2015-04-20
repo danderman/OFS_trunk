@@ -162,11 +162,11 @@ li strike {
 
 .fancyList1 {
   list-style-position: outside;
-  list-style-image: url(/food/grfx/dots.png);
+  list-style-image: url(/shop/grfx/dots.png);
   }
 
 .fancyList1 li.current  {
-  list-style-image: url(/food/grfx/red_arrow.png);
+  list-style-image: url(/shop/grfx/red_arrow.png);
   }
 .fancyList1 li.current a  {
   font-size:1.7em;
@@ -430,7 +430,7 @@ table.compact tr td img {
   margin:auto;
   /* fallback */
   background-color: #f5edd6;
-  background: url(/food/grfx/linear_bg.png);
+  background: url(/shop/grfx/linear_bg.png);
   background-repeat: repeat-x;
   /* Safari 4-5, Chrome 1-9 */
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#758954), to(#f5edd6));
@@ -783,7 +783,7 @@ td.form_key strong {
   font-weight:bold;
   }
 .error_message {
-  background-image: url("/food/grfx/error.png");
+  background-image: url("/shop/grfx/error.png");
   background-repeat:no-repeat;
   background-position:left top;
   position:absolute;
@@ -936,7 +936,7 @@ a.warn {
   border-top-right-radius: 15px;
   /* fallback */
   background-color: #f5edd6;
-  background: url(/food/grfx/linear_bg_tan.png);
+  background: url(/shop/grfx/linear_bg_tan.png);
   background-repeat: repeat-x;
   /* Safari 4-5, Chrome 1-9 */
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f5edd6), to(#fff));
@@ -973,7 +973,7 @@ a.warn {
 
 /* Set up the simplemodal close button */
 a.modalCloseImg {
-  background:url(/food/grfx/simplemodal_x.png) no-repeat; /* adjust url as required */
+  background:url(/shop/grfx/simplemodal_x.png) no-repeat; /* adjust url as required */
   font-size:0;
   width:40px;
   height:46px;
@@ -985,7 +985,7 @@ a.modalCloseImg {
   cursor:pointer;
   }
 a.modalCloseImg:hover {
-  background:url(/food/grfx/simplemodal_x_hover.png) no-repeat; /* adjust url as required */
+  background:url(/shop/grfx/simplemodal_x_hover.png) no-repeat; /* adjust url as required */
   }
 /* Ensure data container fills the entire simplemodal-data container (vertically)
    and hide the vertical scrollbar resulting from a slight vertical overflow */
