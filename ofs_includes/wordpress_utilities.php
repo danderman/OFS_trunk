@@ -6,8 +6,8 @@ function wordpress_show_usermenu ()
     if (isset ($_SESSION['member_id']))
       {
         $content_login = '
-          <form method="post" action="/food/member_form.php" id="edit_profile"></form>
-          <form method="post" action="/food/index.php" id="logout"></form>
+          <form method="post" action="/shop/member_form.php" id="edit_profile"></form>
+          <form method="post" action="/shop/index.php" id="logout"></form>
           <div id="user_menu">
             <img id="user_image" alt="user image" src="//www.gravatar.com/avatar/'.$_SESSION['gravatar_hash'].'?s=64&amp;d=mm&amp;r=PG" class="avatar avatar-64 photo" height="64" width="64" />
             <ul id="user_actions">
@@ -23,8 +23,8 @@ function wordpress_show_usermenu ()
     else
       {
         $content_login = '
-          <form method="post" action="/food/index.php" id="login"></form>
-          <form method="get" action="/food/member_form.php" id="sign_up"></form>
+          <form method="post" action="/shop/index.php" id="login"></form>
+          <form method="get" action="/shop/member_form.php" id="sign_up"></form>
           <div id="user_menu">
             <img id="user_image" alt="utility image" src="'.DIR_GRAPHICS.'gear.png" class="avatar avatar-64 photo" height="64" width="64" />
             <input type="hidden" name="action" value="login" form="login">
