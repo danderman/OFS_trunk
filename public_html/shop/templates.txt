@@ -1,0 +1,43 @@
+order_cycle_info:
+			<ul>
+				<li ${selected_0}>Ordering Opens: ${date_open}
+				<li ${selected_1}>Ordering Closes: ${date_closed}
+				<li ${selected_2}>Delivery Day: ${delivery_date}
+				
+				<li class="last"><a href="/product_lists">${products_listed} products listed</a>
+			</ul>
+
+user_bar_basket: Hello ${first_name} ${last_name}. Your <a href="/shop/members/orders_current.php">basket</a> contains: ${order_items} items ($${order_dollars}). | <a href="/shop/members/index.php">Shop</a> | <a href="/shop/members/logout.php">Logout</a>
+
+user_bar: Hello ${first_name} ${last_name}. <a href="/shop/members/index.php">Shopping Home</a> | <a href="/shop/members/logout.php">Logout</a>
+
+login_bar:
+			<form method="post" action="/shop/members/orders_login.php">
+				<div>
+					<input type="hidden" name="gp" value="ds">
+					Username: <input type="text" name="username_m" value="" size="17" maxlength="20">
+					Password: <input type="password" name="password" size="17" maxlength="25">
+					<input type="submit" name="submit" value="Login to Order">
+				</div>
+			</form>order_cycle_info:
+			<ul>
+				<li ${selected_0}>Ordering Opens: ${date_open}
+				<li ${selected_1}>Ordering Closes: ${date_closed}
+				<li ${selected_2}>Delivery Day: ${delivery_date}
+				
+				<li class="last"><a href="/product_lists">${products_listed} products listed</a>
+			</ul>
+
+user_bar_basket: Hello ${first_name} ${last_name}. Your <a href="/shop/members/orders_current.php">basket</a> contains: ${order_items} items ($${order_dollars}). | <a href="/shop/members/index.php">Shop</a> | <a href="/shop/members/logout.php">Logout</a>
+
+user_bar: Hello ${first_name} ${last_name}. <a href="/shop/members/index.php">Shopping Home</a> | <a href="/shop/members/logout.php">Logout</a>
+
+login_bar:
+			<form method="post" action="/shop/members/orders_login.php">
+				<div>
+					<input type="hidden" name="gp" value="ds">
+					Username: <input type="text" name="username_m" value="" size="17" maxlength="20">
+					Password: <input type="password" name="password" size="17" maxlength="25">
+					<input type="submit" name="submit" value="Login to Order">
+				</div>
+			</form>
