@@ -4,7 +4,7 @@ order_cycle_info:
 				<li ${selected_1}>Ordering Closes: ${date_closed}
 				<li ${selected_2}>Delivery Day: ${delivery_date}
 				
-				<li class="last"><a href="/product_lists">${products_listed} products listed</a>
+				<!-- li class="last"><a href="/product_lists">${products_listed} products listed</a -->
 			</ul>
 
 user_bar_basket: Hello ${first_name} ${last_name}. Your <a href="/shop/members/orders_current.php">basket</a> contains: ${order_items} items ($${order_dollars}). | <a href="/shop/members/index.php">Shop</a> | <a href="/shop/members/logout.php">Logout</a>

@@ -40,7 +40,7 @@ class ActiveCycle
             // Set up for pulling only order cycles appropriate to the current customer_type permissions
             // Allow "orderex" direct access to all order cycles
             $customer_type_query = (CurrentMember::auth_type('orderex') ? '1' : '0');
-            if (CurrentMember::auth_type('member')) $customer_type_query .= '
+            /*if (CurrentMember::auth_type('member')) */$customer_type_query .= '
               OR customer_type LIKE "%member%"';
             if (CurrentMember::auth_type('institution')) $customer_type_query .= '
               OR customer_type LIKE "%institution%"';
@@ -120,7 +120,8 @@ class ActiveCycle
             // Set up for pulling only order cycles appropriate to the current customer_type permissions
             // Allow "orderex" direct access to all order cycles
             $customer_type_query = (CurrentMember::auth_type('orderex') ? '1' : '0');
-            if (CurrentMember::auth_type('member')) $customer_type_query .= '
+            //Always show regular delivery cycles
+            /*if (CurrentMember::auth_type('member'))*/ $customer_type_query .= '
               OR customer_type LIKE "%member%"';
             if (CurrentMember::auth_type('institution')) $customer_type_query .= '
               OR customer_type LIKE "%institution%"';

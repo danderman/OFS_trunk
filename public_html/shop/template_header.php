@@ -1,6 +1,7 @@
 <?php
 
 include_once 'general_functions.php'; // just in case it got missed from the base page
+include_once 'func/layout_functions.php';
 include_once ('wordpress_utilities.php');
 $content_header = '';
 $google_analytics = '';
@@ -242,6 +243,9 @@ else
       </div>
       <div class="tagline">
         '.TAGLINE.'
+      </div>
+      <div id="top_stats">'.
+      order_cycle_info().'
       </div>
     </div><!-- #header -->
     <!-- BEGIN MENU SECTION -->

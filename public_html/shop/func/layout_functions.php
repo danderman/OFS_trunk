@@ -2,7 +2,7 @@
 include_once ('config_openfood.php');
 
 // Load templates
-$temp = explode("\n\n", file_get_contents(FILE_PATH."/templates.txt"));
+$temp = explode("\n\n", file_get_contents(FILE_PATH.PATH."/templates.txt"));
 $layout_templates = array();
 foreach ($temp as $value)
 {
@@ -21,20 +21,24 @@ function replace_templ ($template, $data)
 
 function order_cycle_info ()
 {
-	$result = mysql_query("SELECT date_format(date_open, '%b %D') AS date_open,
+/*	$result = mysql_query("SELECT date_format(date_open, '%b %D') AS date_open,
 		date_format(date_closed, '%b %D') AS date_closed,
 		date_format(delivery_date, '%b %D') AS delivery_date,
 		((now() > date_open) + (now() > date_closed)) AS status
 		FROM ". TABLE_CURDEL) or die("Failed to get delivery info: ".mysql_error());
 	$data = mysql_fetch_assoc($result);
-	$data["selected_".$data["status"]] = ' class="selected"';
-	$result = mysql_query("SELECT product_list.product_id
+  $data["selected_".$data["status"]] = ' class="selected"';
+  $result = mysql_query("SELECT product_list.product_id
 		FROM ".TABLE_PRODUCT.", ".TABLE_PRODUCER." 
 		WHERE product_list.donotlist != '1'
 		AND product_list.producer_id = product_list.producer_id
 		AND producers.donotlist_producer != '1'
 		GROUP BY product_id") or die("Failed to get listed product info info: ".mysql_error());
-	$data["products_listed"] = mysql_num_rows($result);
+ */
+  $data["products_listed"] = "";// = mysql_num_rows($result);
+  $data["date_open"] = ActiveCycle::date_open_next();
+  $data["date_closed"] = ActiveCycle::date_closed_next();
+  $data["delivery_date"] = ActiveCycle::delivery_date_next();
 	return replace_templ("order_cycle_info", $data);
 }
 
