@@ -1,0 +1,48 @@
+table
+{
+	float: left;
+	margin: 0.5em;
+}
+
+#legend {float: none;}
+
+td, th, table
+{
+	border: 1px solid #AAA;
+}
+
+table.current_delivery, table.current_delivery td, table.current_delivery th
+{
+	border: 1px solid #888;
+}
+
+td.cycle_delivery
+{
+	background: yellow;
+	color: black;
+}
+
+td.cycle_open
+{
+	background: #6f6;
+	color: black;
+}
+
+table.current_delivery th.month_header
+{
+	background: #6f6;
+}
+
+#legend td.cycle_open, #legend td.cycle_closed
+{
+	width: 1em;
+}
+
+#legend 
+{
+  width: 13em;
+}
+
+.cals {
+	width: 13em;
+}

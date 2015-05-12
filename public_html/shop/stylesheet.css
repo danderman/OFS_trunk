@@ -1080,4 +1080,14 @@ a.modalCloseImg:hover {
 
   }
 
-
+/**** Ben's Styles ****/
+  #top_stats {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 130px;
+    padding: 10px 20px 0px 15px;
+    background: url(images/stats_bg.png);
+    color: #CCC;
+    font-weight: bold;
+ }
