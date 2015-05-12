@@ -1,7 +1,7 @@
 <?php
 include_once 'config_openfood.php';
 session_start();
-valid_auth('member_admin,site_admin,cashier');
+valid_auth('member_admin,site_admin,cashier,member');
 
 // Set defaults
 
