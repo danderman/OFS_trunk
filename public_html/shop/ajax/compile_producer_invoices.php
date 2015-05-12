@@ -14,8 +14,8 @@ elseif ($argument_array[0] == 'html2pdf')
     // Input like: html2pdf:14
     $delivery_id = $argument_array[1];
     $producer_output_html = INVOICE_FILE_PATH.'invoices_producers-'.$delivery_id.'.html';
-    $producer_output_pdf = INVOICE_FILE_PATH.'invoices_producers-'.$delivery_id.'.pdf';
-    exec("htmldoc --webpage --browserwidth 800 --left 36 --right 36 -t pdf $producer_output_html -f $producer_output_pdf");
+/*    $producer_output_pdf = INVOICE_FILE_PATH.'invoices_producers-'.$delivery_id.'.pdf';
+exec("htmldoc --webpage --browserwidth 800 --left 36 --right 36 -t pdf $producer_output_html -f $producer_output_pdf");*/
     echo 'HTML2PDF';
     exit (1);
   }

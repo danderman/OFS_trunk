@@ -195,16 +195,16 @@ $page_specific_css = '
   </style>';
 
 // Conditional for generating PDF invoices
-if ($_GET['output'] == 'pdf')
+/*if ($_GET['output'] == 'pdf')
   {
     $fp = fopen( FILE_PATH.PATH.'temp/route_list.html', a);
     fwrite($fp, $output);
   }
 else
-  {
+{*/
     include("template_header.php");
-    echo '<a href="'.$_SERVER['SCRIPT_NAME'].'?type='.$type.'&delivery_id='.$delivery_id.($_GET['producer_id'] ? '&producer_id='.$_GET['producer_id'] : '').'&output=pdf&paginate=false">Download as PDF (continuous)</a><br>';
-    echo '<a href="'.$_SERVER['SCRIPT_NAME'].'?type='.$type.'&delivery_id='.$delivery_id.($_GET['producer_id'] ? '&producer_id='.$_GET['producer_id'] : '').'&output=pdf&paginate=true">Download as PDF (paginated)</a>';
+    /*echo '<a href="'.$_SERVER['SCRIPT_NAME'].'?type='.$type.'&delivery_id='.$delivery_id.($_GET['producer_id'] ? '&producer_id='.$_GET['producer_id'] : '').'&output=pdf&paginate=false">Download as PDF (continuous)</a><br>';
+    echo '<a href="'.$_SERVER['SCRIPT_NAME'].'?type='.$type.'&delivery_id='.$delivery_id.($_GET['producer_id'] ? '&producer_id='.$_GET['producer_id'] : '').'&output=pdf&paginate=true">Download as PDF (paginated)</a>';*/
     if (! $_GET['producer_id'])
       {
         echo '
@@ -217,7 +217,7 @@ else
       }
     echo $output;
     include("template_footer.php");
-  }
+/*  }
 
 // Conditional for generating PDF invoices
 if ($_GET['output'] == 'pdf')
@@ -228,4 +228,4 @@ if ($_GET['output'] == 'pdf')
     flush();
     passthru('htmldoc -t pdf --webpage '.FILE_PATH.PATH.'temp/route_list.html');
     unlink(FILE_PATH.PATH.'temp/route_list.html');
-  }
+  }*/
