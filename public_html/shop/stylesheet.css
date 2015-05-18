@@ -462,17 +462,11 @@ table.compact tr td img {
   }
 
 #content {
-  border-right:10px solid #758954;
-  border-bottom:10px solid #758954;
-  border-left:10px solid #758954;
-  border-left:10px solid #758954;
   padding:10px;
   min-height:550px;
   width:95%;
   background-color:#fff;
   margin:auto;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
   }
 
 .title {
