@@ -205,7 +205,11 @@ if ($display_as_popup == true)
 ////////////////////////////////////////////////////////////////////////////////
 else
   {
-    $content_header = '<!DOCTYPE html>
+    define('OFS_HEAD', 1);
+    define('OFS_TITLE', $page_title);
+    require("../wp-blog-header.php");
+    get_header();
+    /*$content_header = '<!DOCTYPE html>
 <html>
   <head>
     <title>'.SITE_NAME.' - '.$page_title.'</title>
@@ -268,6 +272,8 @@ else
       '.$page_title_html.'
       '.$page_subtitle_html.'
       <div class="clear"></div>';
+     */
+  
   }
 
 echo $content_header;
