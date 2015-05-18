@@ -404,9 +404,9 @@ $page_specific_css = '
   </style>';
 
 $page_title_html = '<span class="title">Reports</span>';
-$page_subtitle_html = '<span class="subtitle">Inspect Accounts</span>';
-$page_title = 'Reports: Inspect Accounts';
-$page_tab = 'cashier_panel';
+$page_subtitle_html = '<span class="subtitle">Admin Maintenance: Edit Ordering schedule</span>';
+$page_title = 'Admin Maintenance: Edit Ordering Schedule';
+$page_tab = 'admin_panel';
 
 include("template_header.php");
 echo '
