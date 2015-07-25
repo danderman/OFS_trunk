@@ -337,8 +337,8 @@ function show_listing_row($data, $row_type)
                 </div>
               </td>
               <td class="producer">
-                '.$data['prodtype'].'<br>
-                <strong>'.$data['storage_code'].'</strong>
+                Production:<br>'.$data['prodtype'].'<br>
+                Storage:<br><strong>'.$data['storage_code'].'</strong>
               </td>
               <td class="pricing">
                 '.$data['pricing_display'].'

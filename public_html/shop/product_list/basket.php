@@ -27,7 +27,7 @@ $order_by = '
 
 // Assign page tab and title information
 $page_title_html = '<span class="title">Basket</span>';
-$page_subtitle_html = '<span class="subtitle">Basket Items</span>';
+$page_subtitle_html = '<span class="subtitle">Basket Items<br><small>Refresh page to update totals</small></span>';
 $page_title = 'Basket: Basket Items';
 $page_tab = 'shopping_panel';
 

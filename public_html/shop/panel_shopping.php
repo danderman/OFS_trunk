@@ -35,7 +35,7 @@ if ( ActiveCycle::ordering_window() == 'open')
   {
     if ($basket_id)
       {
-        $basket_status = 'Ready for shopping<br>'.$basket_quantity.' '.Inflect::pluralize_if($basket_quantity, 'item').' in basket';
+        $basket_status = 'Ready for shopping<br><a href="product_list.php?type=basket">'.$basket_quantity.' '.Inflect::pluralize_if($basket_quantity, 'item').' in basket</a>';
       }
     else
       {
@@ -45,7 +45,7 @@ if ( ActiveCycle::ordering_window() == 'open')
   }
 else
   {
-    $basket_status = 'Ordering is currently closed<br>'.$basket_quantity.' '.Inflect::pluralize_if($basket_quantity, 'item').' in basket';
+    $basket_status = 'Ordering is currently closed<br><a href="product_list.php?type=basket">'.$basket_quantity.' '.Inflect::pluralize_if($basket_quantity, 'item').' in basket</a>';
   }
 
 // Set content_top to show basket selector...
@@ -75,28 +75,7 @@ $display .= '
     </tr>
     <tr>
       <td>';
-
-$display .= '
-    <img src="'.DIR_GRAPHICS.'shopping.png" width="32" height="32" align="left" hspace="2" alt="Basket Status"><br>
-    <strong>Basket Status</strong>
-        <ul class="fancyList1">
-          <li class="last_of_group">'.$basket_status.'</li>
-        </ul>
-        <img src="'.DIR_GRAPHICS.'product.png" width="32" height="32" align="left" hspace="2" alt="Order Info"><br>
-        <b>Order Info</b>
-        <ul class="fancyList1">
-          <li><a href="product_list.php?type=basket">View items in basket</a></li>
-          <li><a href="show_report.php?type=customer_invoice">View invoice</a><br />
-          <em>(Invoice is blank until after the order closes)</em></li>
-          <li class="last_of_group"><a href="past_customer_invoices.php?member_id='.$_SESSION['member_id'].'">Past Customer Invoices</a></li>
-        </ul>
-      </td>
-      <td align="left" width="50%">
-        <img src="'.DIR_GRAPHICS.'invoices.png" width="32" height="32" align="left" hspace="2" alt="Available Products"><br>
-        <b>'.(ActiveCycle::ordering_window() == 'open' ? 'Available Products' : 'Products (Shopping is closed)').'</b>
-        <ul class="fancyList1">';
-
-$search_display = '
+      $search_display = '
   <form action="product_list.php" method="get">
     <input type="hidden" name="type" value="search">
     <input type="text" name="query" value="'.$_GET['query'].'">
@@ -109,8 +88,8 @@ $display .= '
 if (CurrentMember::auth_type('unfi')) $display .= '
           <!-- <li><a href="product_list.php?type=unfi">All products (UNFI)</a></li> -->';
 $display .= '
-          <li>                        <a href=category_list2.php>                     Browse by category</a></li>
-          <li>                        <a href="prdcr_list.php">                       Browse by producer</a></li>
+          <li>                        <a href=category_list2.php>                     Browse Local Food and Products by category</a></li>
+          <li>                        <a href="prdcr_list.php">                       Browse Local Food and Products by producer</a></li>
           <li class="last_of_group">  <a href="product_list.php?type=prior_baskets">  Previously ordered products</a></li>
           <li>                        <a href="product_list.php?type=by_id">          All products by number</a></li>
           <li class="last_of_group">  <a href="product_list.php?type=full">           All products by category</a></li>
@@ -119,6 +98,24 @@ $display .= '
           <li>                        <a href="product_list.php?type=changed">        Changed products</a></li>'.
 (CurrentMember::auth_type('institution') ? '
           <li>                        <a href="product_list.php?type=wholesale">      Wholesale products</a></li>' : '').'
+        </ul>
+      </td>';
+
+$display .= '
+ 
+      <td align="left" width="50%">
+        <img src="'.DIR_GRAPHICS.'shopping.png" width="32" height="32" align="left" hspace="2" alt="Basket Status"><br>
+    <strong>Basket Status</strong>
+        <ul class="fancyList1">
+          <li class="last_of_group">'.$basket_status.'</li>
+        </ul>
+        <img src="'.DIR_GRAPHICS.'product.png" width="32" height="32" align="left" hspace="2" alt="Order Info"><br>
+        <b>Order Info</b>
+        <ul class="fancyList1">
+          <li><a href="product_list.php?type=basket">View items in basket</a></li>
+          <li><a href="show_report.php?type=customer_invoice">View invoice</a><br />
+          <em>(Invoice is blank until after the order closes)</em></li>
+          <li class="last_of_group"><a href="past_customer_invoices.php?member_id='.$_SESSION['member_id'].'">Past Customer Invoices</a></li>
         </ul>
       </td>
     </tr>
