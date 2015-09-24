@@ -248,6 +248,7 @@ if (isset ($bpid))
               ),
             referenced_key1 = "'.mysql_real_escape_string($bpid).'"';
         $result = @mysql_query($query, $connection) or die(debug_print ("ERROR: 925223 ", array ($query,mysql_error()), basename(__FILE__).' LINE '.__LINE__));
+        $alert = ($action == "message") ? "Message set\n............\n".$message : "";
       }
   }
 
