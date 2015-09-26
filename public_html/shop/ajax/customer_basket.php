@@ -45,6 +45,8 @@ $query = '
     '.NEW_TABLE_PRODUCTS.'.inventory_id,
     '.NEW_TABLE_PRODUCTS.'.inventory_pull,
     '.NEW_TABLE_PRODUCTS.'.unit_price,
+    '.NEW_TABLE_PRODUCTS.'.random_weight,
+    '.NEW_TABLE_PRODUCTS.'.maximum_weight,
     FLOOR('.TABLE_INVENTORY.'.quantity / '.NEW_TABLE_PRODUCTS.'.inventory_pull) AS inventory_quantity
   FROM
     '.NEW_TABLE_PRODUCTS.'
@@ -61,7 +63,8 @@ if ( $row = mysql_fetch_object($result) )
     $inventory_quantity = $row->inventory_quantity;
     $inventory_id = $row->inventory_id;
     $inventory_pull = $row->inventory_pull;
-    $unit_price = $row->unit_price;
+    $random_weight = $row->random_weight;
+    $unit_price = ($random_weight == 0) ? $row->unit_price : $row->unit_price * $row->maximum_weight;
   }
 // Abort the operation if we do not have important information
 
@@ -273,6 +276,6 @@ if ($action == 'checkout_basket')
 // we don't want to send extraneous data back to the output page.
 if ($non_ajax_query == false)
   {
-    echo number_format($basket_quantity, 0).':'.number_format($inventory_quantity, 0).':'.number_format($basket_item_info['checked_out'], 0).':'.$alert.':'.number_format($unit_price*$basket_quantity,2);
+    echo number_format($basket_quantity, 0).':'.number_format($inventory_quantity, 0).':'.number_format($basket_item_info['checked_out'], 0).':'.$alert.':'.(($random_weight == 0)?'':'(estimated)<br>').number_format($unit_price*$basket_quantity,2);
   }
 ?>
