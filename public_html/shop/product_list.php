@@ -506,9 +506,14 @@ function AddToCart (product_id, product_version, action) {
     var new_inventory = returned_array[1];
     var checked_out = returned_array[2];
     var alert_text = returned_array[3];
+    var new_total = returned_array[4];
     if (document.getElementById("basket_qty" + product_id))
       {
         document.getElementById("basket_qty" + product_id).innerHTML = new_quantity;
+        if (document.getElementById("X" + product_id)) 
+        {
+          document.getElementById("X" + product_id).querySelector(".total").querySelector("span").innerHTML = new_total;
+        }
       }
     // Update the number available
     if (document.getElementById("available" + product_id))
