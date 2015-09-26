@@ -232,7 +232,7 @@ while ( $row = mysql_fetch_array($result) )
                                      - round($row['producer_subcat_adjust_fee'] * $row['cost_multiplier'], 2)
                                      - round($row['producer_producer_adjust_fee'] * $row['cost_multiplier'], 2);
     $row['customer_adjusted_cost'] = round($row['cost_multiplier'], 2)
-                                     + round($row['customer_customer_adjust_fee'] * $row['cost_multiplier'], 2)
+                                     + (SHOW_ACTUAL_PRICE ? round($row['customer_customer_adjust_fee'] * $row['cost_multiplier'], 2) : 0)
                                      + round($row['customer_product_adjust_fee'] * $row['cost_multiplier'], 2)
                                      + round($row['customer_subcat_adjust_fee'] * $row['cost_multiplier'], 2)
                                      + round($row['customer_producer_adjust_fee'] * $row['cost_multiplier'], 2);
