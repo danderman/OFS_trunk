@@ -83,6 +83,7 @@ while ( $row = mysql_fetch_array($result) )
     $page_data .= '
       <div id="member_id'.$member_id.'" class="basket_section">
         <span class="member_id">'.$member_id.'</span>
+        <input type="hidden" class="basket_id" value="'.$basket_id.'">
         <span class="site_short">['.$site_short.']</span>
         <span class="member_name"><a href="'.PATH.'show_report.php?type=customer_invoice&delivery_id='.$delivery_id.'&member_id='.$member_id.'" target="_blank">'.$preferred_name.'</a></span>
         <span class="controls"><input type="button" value="Receive Payment" onclick="show_receive_payment_form('.$member_id.','.$basket_id.',\''.urlencode($preferred_name).'\')"></span>
@@ -93,7 +94,8 @@ while ( $row = mysql_fetch_array($result) )
   }
 
 $page_specific_javascript = '
-  <script src="'.PATH.'receive_payments.js" type="text/javascript"></script>';
+  <script src="'.PATH.'receive_payments.js" type="text/javascript"></script>
+  <script src="'.PATH.'auto_fill_ctotals.js" type="text/javascript"></script>';
 
 $page_specific_css = '
   <link href="'.PATH.'receive_payments.css" rel="stylesheet" type="text/css">';
@@ -107,6 +109,21 @@ include("template_header.php");
 echo '
   <!-- CONTENT BEGINS HERE -->
   <div style="float:right;width:300px;height:26px;margin-bottom:10px;">'.delivery_selector($delivery_id).'</div>
+ <p>
+  <strong>Auto-fill form</strong>
+  (click to show/hide)
+  <img title="click to show" id="autofill-ic" src="grfx/arrow_closed.png" onClick=\'{document.getElementById("autofill").style.display="";document.getElementById("autofill-ic").style.display="none";document.getElementById("autofill-io").style.display="";}\'>
+  <img title="click to hide" id="autofill-io" style="display:none;" src="grfx/arrow_open.png" onClick=\'{document.getElementById("autofill").style.display="none";document.getElementById("autofill-io").style.display="none";document.getElementById("autofill-ic").style.display="";}\'>
+</p>
+
+<div id="autofill" style="display:none;">
+<p>Paste sales data from Excel (or other spreadsheet program) into the text area below to auto-fill the form. The first column should be member id#, the second column should be amount paid for shopping invoice, the third column should be membership amount paid (optional). Dollar amounts with a $ prefix will have the $ removed, and rows with no shopping or membership payment amount will be ignored. If there are rows with dollar amounts but the member id# isn\'t in the list, an error message will be displayed. <em>Note: copying columns that aren\'t next to each other in Excel will break the formatting, to get around this, copy the rows, paste them into a new document (where they will be put next to each other), then copy out of that and paste here.</em></p>
+<form onsubmit="form_auto_fill(); return(false);">
+<textarea id="auto_fill_box" cols="30" rows="4"></textarea><br>
+Batch #:<input type="text" id="auto_fill_batchno"><br>
+<input type="submit" value="Auto Fill">
+</form>
+</div> 
   '.$page_data.'
   <!-- CONTENT ENDS HERE -->';
 include("template_footer.php");

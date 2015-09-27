@@ -1,3 +1,41 @@
+function process_payment(member_id,basket_id,amount,batchno) {
+  var t = new Date();
+  var datestring = t.getFullYear() + "-" + t.getMonth() + "-" + t.getDay() + " " + t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds();
+  jQuery.post("ajax/receive_payments_process.php", {
+    // member_id:
+    // posted_by:
+    // site_id:
+    // delivery_id:
+    process:"receive_payment",
+    member_id:member_id,
+    basket_id:basket_id,
+    amount:amount,
+    effective_datetime:datestring,
+    payment_type:"cash",
+    paypal_fee:"",
+    paypal_comment:"",
+    memo:"",
+    batch_number:batchno,
+    comment:""
+    },
+  function(receive_payment) {
+    // Returned value has first ten fixed characters indicating status
+    var receive_payment_status = receive_payment.substr(0,10)
+    var receive_payment_result = receive_payment.substr(10)
+    if (receive_payment_status == "ACCEPT    ") {
+      // Payment was recorded, so close the receive_payment form
+      // Then reload the member information section
+      reload_detail_line(basket_id);
+      }
+    else if (receive_payment_status == "ERROR     ") {
+      alert("Payment for member " + member_id + " failed");
+      }
+    else {
+      }
+    });
+  }
+
+
 function form_auto_fill ()
 {
   var error_message = "Auto-fill failed for the members and information below:\n\n";
@@ -12,14 +50,12 @@ function form_auto_fill ()
       var values = lines[i].split(/ ?\t ?/);
       values[0] = values[0].replace(/[^\d]/g, "");
       values[1] = values[1].replace(/[^\d.-]/g, "");
-      values[2] = values[2].replace(/[^\d.-]/g, "");
-      var shopping_ref = document.getElementById("shopping_amount"+values[0]);
-      var membership_ref = document.getElementById("membership_amount"+values[0]);
-      if (shopping_ref && membership_ref && (values[1] || values[2]))
+      if (typeof(values[2]) === "string") {values[2] = values[2].replace(/[^\d.-]/g, "");}
+
+      var basket_id = document.getElementById("member_id"+values[0]).querySelector(".basket_id").value;
+      if (basket_id && (values[1] || values[2]))
       {
-        shopping_ref.value = values[1];
-        membership_ref.value = values[2];
-        document.getElementById("batchno"+values[0]).value = batchno;
+        process_payment(values[0], basket_id, values[1], batchno);
       }
       else if (values[0] || values[1] || values[2])
       {
